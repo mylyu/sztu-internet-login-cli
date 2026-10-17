@@ -32,6 +32,13 @@ chmod 755 campus-srun
 ./campus-srun logout
 ```
 
+The release also includes a `.sha256` checksum file. Verify the downloaded
+archive with:
+
+```sh
+sha256sum -c campus-srun-linux-amd64.tar.gz.sha256
+```
+
 Login prompts for the password interactively; type it and press Enter. The
 password is not a command-line option. For a remote SSH session, allocate a
 TTY so the prompt can read securely:
@@ -109,6 +116,12 @@ chmod 755 campus-srun
 ./campus-srun status
 ./campus-srun login -username YOUR_USERNAME
 ./campus-srun logout
+```
+
+Release 还提供 `.sha256` 校验文件，可用以下命令验证下载的压缩包：
+
+```sh
+sha256sum -c campus-srun-linux-amd64.tar.gz.sha256
 ```
 
 运行登录命令后，按提示输入密码并按回车。密码不是命令行选项。通过 SSH
