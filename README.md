@@ -22,9 +22,19 @@ installation or configuration file on the target server.
 
 Download `campus-srun-linux-amd64.tar.gz` from the
 [latest GitHub Release](https://github.com/mylyu/sztu-internet-login-cli/releases/latest)
-and extract it on a Linux x86_64 server:
+to your local computer. For a Kubernetes pod accessible over SSH on port
+`31799`, copy the archive to `/root` with `scp` (note that `scp` uses an
+uppercase `-P` for the port):
 
 ```sh
+scp -P 31799 campus-srun-linux-amd64.tar.gz root@10.102.14.130:/root/
+```
+
+Then connect to the pod and extract and run the tool:
+
+```sh
+ssh -p 31799 root@10.102.14.130
+cd /root
 tar -xzf campus-srun-linux-amd64.tar.gz
 chmod 755 campus-srun
 ./campus-srun status
@@ -107,10 +117,19 @@ sha256sum -c SHA256SUMS
 
 ## 快速开始
 
-从[最新 GitHub Release](https://github.com/mylyu/sztu-internet-login-cli/releases/latest)
-下载 `campus-srun-linux-amd64.tar.gz`，在 Linux x86_64 服务器上解压并运行：
+先在本地电脑上从[最新 GitHub Release](https://github.com/mylyu/sztu-internet-login-cli/releases/latest)
+下载 `campus-srun-linux-amd64.tar.gz`。对于可通过 SSH 端口 `31799` 访问的
+Kubernetes Pod，使用 `scp` 将压缩包复制到 `/root`（注意端口参数是大写 `-P`）：
 
 ```sh
+scp -P 31799 campus-srun-linux-amd64.tar.gz root@10.102.14.130:/root/
+```
+
+然后连接到 Pod，解压并运行工具：
+
+```sh
+ssh -p 31799 root@10.102.14.130
+cd /root
 tar -xzf campus-srun-linux-amd64.tar.gz
 chmod 755 campus-srun
 ./campus-srun status
